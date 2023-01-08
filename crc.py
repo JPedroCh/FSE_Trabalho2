@@ -38,7 +38,7 @@ def calcula_CRC(commands, size):
     crc = 0
     for i in range(len(commands)):
         crc = CRC16(crc, commands[i])
-    return crc
+    return struct.pack("H", crc )
 
 def verifica_CRC(response, size):
     crc_calculado = calcula_CRC(response, size-2)
