@@ -40,6 +40,8 @@ def calcula_CRC(commands, size):
         crc = CRC16(crc, commands[i])
     return crc
 
-
-
-
+def verifica_CRC(response, size):
+    crc_calculado = calcula_CRC(response, size-2)
+    if(crc_calculado == response[size-2:size]):
+      return True
+    return False
