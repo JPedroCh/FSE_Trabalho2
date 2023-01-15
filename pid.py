@@ -1,8 +1,8 @@
+import valores
+
 class PID:
     def __init__(self):
-        self.saida_medida = 0.0
         self.sinal_de_controle = 0.0
-        self.referencia = 0.0
 
         # Sugestões do enunciado
         self.Kp = 30.0
@@ -21,11 +21,8 @@ class PID:
         self.Ki = Ki_
         self.Kd = Kd_
 
-    def pid_atualiza_referencia(self, referencia_):
-        self.referencia = referencia_
-
-    def pid_controle(self, saida_medida) -> float:
-        erro = self.referencia - saida_medida
+    def pid_controle(self) -> float:
+        erro = valores.temp_referencia - valores.temp_interna
 
         self.erro_total += erro
 
@@ -44,5 +41,6 @@ class PID:
             self.sinal_de_controle = self.sinal_de_controle_MIN
         
         self.erro_anterior = erro
+        valores.sinal_controle = self.sinal_de_controle
 
-        return self.sinal_de_controle
+pid = PID()

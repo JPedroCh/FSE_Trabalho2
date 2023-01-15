@@ -1,3 +1,5 @@
+import struct
+
 def CRC16(crc, data):
     tbl = [
         0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
@@ -34,14 +36,14 @@ def CRC16(crc, data):
         0x8201, 0x42C0, 0x4380, 0x8341, 0x4100, 0x81C1, 0x8081, 0x4040]
     return ((crc & 0xFF00) >> 8) ^ tbl[(crc & 0x00FF) ^ (data & 0x00FF)]
 
-def calcula_CRC(commands, size):
+def calcula_CRC(commands):
     crc = 0
     for i in range(len(commands)):
         crc = CRC16(crc, commands[i])
     return struct.pack("H", crc )
 
 def verifica_CRC(response, size):
-    crc_calculado = calcula_CRC(response, size-2)
+    crc_calculado = calcula_CRC(response[:size-2])
     if(crc_calculado == response[size-2:size]):
       return True
     return False
