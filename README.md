@@ -46,6 +46,6 @@ Após executar o arquivo `main.py`:
 
 ## Gráficos 
 
-![Gráfico da Curva](images/grafico_curva.jpg)
+![Gráfico da Curva](./images/grafico_curva.jpeg)
 
-![Gráfico de Modo Dashboard](images/grafico_dashboard.jpg)
+![Gráfico de Modo Dashboard](./images/grafico_dashboard.jpeg)
