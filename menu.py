@@ -18,18 +18,22 @@ def modo():
     opcao = int(input("Insira sua opção:"))
 
     if(opcao == 1):
-        modbus.envia(comandos.send_control_mode(1))
-        time.sleep(0.2)
-        valores.modo_controle_temperatura = 0
-        modbus.ler()
-    elif(opcao == 2):
         modbus.envia(comandos.send_control_mode(0))
         time.sleep(0.2)
         valores.modo_controle_temperatura = 0
         modbus.ler()
+
+        print("Modo de controle pela Dashboard selecionado.")
+    elif(opcao == 2):
+        modbus.envia(comandos.send_control_mode(1))
+        time.sleep(0.2)
+        valores.modo_controle_temperatura = 1
+        modbus.ler()
+        print("Modo de controle pela curva selecionado.")
     elif(opcao == 3):
         modbus.envia(comandos.send_control_mode(1))
         valores.modo_controle_temperatura = 1
+        print("Modo de controle pelo terminal selecionado.")
         leitor_temp_terminal()
 
 def leitor_temp_terminal():

@@ -47,7 +47,7 @@ def decodifica_comando_usuario(comando):
       # Liga o forno
       if(i == int('0xA1', 16)):
         if(valores.estado_sistema == 0):
-          rint("[INFO] Forno ligado")
+          print("[INFO] Forno ligado")
           valores.estado_sistema = 1
           modbus.envia(comandos.send_system_status(1))
 
@@ -55,14 +55,14 @@ def decodifica_comando_usuario(comando):
       elif(i == int('0xA2', 16)):
         print('0xA2')
         if(valores.estado_sistema == 1):
-          rint("[INFO] Forno desligado")
+          print("[INFO] Forno desligado")
           valores.estado_sistema = 0
           modbus.envia(comandos.send_system_status(0))
 
       # Inicia aquecimento
       elif(i == int('0xA3', 16)):
         if(valores.estado_sistema == 1):
-          rint("[INFO] Aquecimento iniciado")
+          print("[INFO] Aquecimento iniciado")
           valores.estado_funcionamento = 1
           modbus.envia(comandos.send_func_status(1))
           if(valores.modo_controle_temperatura == 1):
@@ -72,7 +72,7 @@ def decodifica_comando_usuario(comando):
       # Para aquecimento
       elif(i == int('0xA4', 16)):
         if(valores.estado_funcionamento == 1 and valores.estado_sistema == 1):
-          rint("[INFO] Aquecimento parado")
+          print("[INFO] Aquecimento parado")
           valores.estado_funcionamento = 0
           modbus.envia(comandos.send_func_status(0))
           pwm.resfriar()
