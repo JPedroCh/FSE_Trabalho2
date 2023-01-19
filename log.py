@@ -15,7 +15,7 @@ class Log:
             if(self.running == False):
               break
             log = open(self.path, 'a')
-            log.write(f"{datetime.now()}, Temp. Interna = {valores.temp_interna} C, Temp. Externa = {valores.temperatura_ambiente} C, Temp. Referência = {valores.temp_referencia} C, Val. Acionamento do Resistor = {valores.sinal_controle} %, Val. Acionamento da Ventoinha = {valores.sinal_controle} % \n")
+            log.write(f"{datetime.now()}, Temp. Interna = {valores.temp_interna} C, Temp. Externa = {valores.temperatura_ambiente} C, Temp. Referência = {valores.temp_referencia} C, Val. Acionamento do Resistor = {valores.acionamento_resistor} %, Val. Acionamento da Ventoinha = {valores.acionamento_ventoinha} % \n")
             log.close()
             time.sleep(1)
   
