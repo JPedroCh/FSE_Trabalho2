@@ -9,12 +9,12 @@ Repositório para o [Trabalho 2](https://gitlab.com/fse_fga/trabalhos-2022_2/tra
 * RPi.GPIO
 
 
-  Para instalar:`pip3 install RPi.GPIO`
+  Para instalar: `pip3 install RPi.GPIO`
 
 * smbus2
 
 
-  Para instalar:`pip3 install smbus2`
+  Para instalar: `pip3 install smbus2`
   
 * RPi.bme280 
 
@@ -46,6 +46,8 @@ Após executar o arquivo `main.py`:
 
 ## Gráficos 
 
-![Gráfico da Curva](./images/grafico_curva.jpeg)
+* ### Curva: 
+![Gráfico da Curva](./images/grafico_curva.jpeg) 
 
+* ### Dashboard: 
 ![Gráfico de Modo Dashboard](./images/grafico_dashboard.jpeg)
